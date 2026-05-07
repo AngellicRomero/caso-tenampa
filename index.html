@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Heraldo del Tenampa · Caso de estudio · ADE 4067</title>
+<meta name="description" content="Material académico del curso ADE 4067 · Gestión del Cambio · EGADE Business School. Caso Salón Tenampa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   EL HERALDO DEL TENAMPA · ESTILOS
+   Inspirado en El Monitor Republicano (1857) y El Imparcial (1899)
+============================================================ */
+
+:root {
+  --paper: #E8DFCE;
+  --paper-dark: #DDD2BE;
+  --paper-light: #F0E8D8;
+  --paper-lighter: #F5EFE0;
+  --ink: #1F1A12;
+  --sepia-ink: #3A2E1F;
+  --guinda: #6B1818;
+  --guinda-light: #8B2828;
+  --faded: #86755C;
+  --bottle: #2C4A2E;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Text', 'PT Serif', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(120,80,30,0.06), transparent 40%),
+    radial-gradient(ellipse at 85% 60%, rgba(80,50,15,0.05), transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(100,70,20,0.04), transparent 45%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch' seed='5'/><feColorMatrix values='0 0 0 0 0.20 0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0.10 0'/></filter><rect width='600' height='600' filter='url(%23n)'/></svg>");
+  background-attachment: fixed;
+}
+
+.page { display: none; }
+.page.active { display: block; animation: pageIn 0.5s ease; }
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   MASTHEAD FIJO
+============================================================ */
+.masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+  box-shadow: 0 2px 0 var(--ink), 0 4px 0 var(--paper), 0 5px 0 var(--ink);
+  padding: 10px 16px 12px;
+}
+
+.masthead-inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.masthead-epoch {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+  padding: 2px 0;
+}
+
+.masthead-title {
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+  font-size: clamp(26px, 5vw, 46px);
+  text-align: center;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+  line-height: 0.95;
+  margin: 4px 0 6px;
+  text-transform: uppercase;
+}
+
+.masthead-rule {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 3px;
+  margin: 2px 0;
+}
+
+.masthead-descriptor {
+  font-family: 'PT Serif', serif;
+  font-style: italic;
+  font-size: 11px;
+  text-align: center;
+  color: var(--sepia-ink);
+  padding: 4px 0;
+  letter-spacing: 0.01em;
+}
+
+.masthead-divider {
+  border-top: 1px solid var(--ink);
+  margin: 0;
+}
+
+.masthead-dateline {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+  padding: 5px 0 2px;
+}
+
+/* ============================================================
+   MAIN
+============================================================ */
+main {
+  padding-top: 165px;
+  padding-bottom: 80px;
+}
+
+@media (max-width: 640px) {
+  main { padding-top: 145px; }
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================================
+   GRAN TITULAR
+============================================================ */
+.kicker {
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--guinda);
+}
+
+.kicker-center { text-align: center; }
+
+.grand-headline {
+  font-family: 'Abril Fatface', serif;
+  font-weight: 400;
+  font-size: clamp(48px, 9vw, 110px);
+  text-transform: uppercase;
+  line-height: 0.92;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.grand-headline em {
+  font-style: italic;
+  color: var(--guinda);
+}
+
+.subhead-italic {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(18px, 2.5vw, 28px);
+  color: var(--sepia-ink);
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* ============================================================
+   BLOQUES DE TEXTO
+============================================================ */
+.lead {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  text-align: center;
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--sepia-ink);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.section-title {
+  font-family: 'Abril Fatface', serif;
+  font-size: clamp(34px, 5vw, 56px);
+  text-align: center;
+  color: var(--ink);
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 8px 0;
+}
+
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Abril Fatface', serif;
+  font-size: 5.2rem;
+  line-height: 0.85;
+  padding: 0.3rem 0.5rem 0 0;
+  color: var(--ink);
+  font-weight: 400;
+}
+
+p.body-text {
+  font-size: 16px;
+  line-height: 1.75;
+  text-align: justify;
+  margin-bottom: 1rem;
+  hyphens: auto;
+}
+
+/* ============================================================
+   FILETES Y ORNAMENTOS
+============================================================ */
+.rule-double {
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 3px;
+  margin: 2.5rem 0;
+}
+
+.rule-thick-thin {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 5px;
+  margin: 2rem 0;
+}
+
+.rule-thin-thick {
+  border-top: 1px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  height: 5px;
+  margin: 2rem 0;
+}
+
+.ornament {
+  text-align: center;
+  margin: 1.6rem 0;
+  color: var(--guinda);
+  font-family: 'PT Serif', serif;
+  font-size: 14px;
+  letter-spacing: 0.4em;
+}
+
+/* ============================================================
+   FICHA TÉCNICA (3 columnas)
+============================================================ */
+.ficha {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.ficha-col {
+  padding: 0 1rem;
+}
+
+.ficha-col + .ficha-col {
+  border-left: 1px solid rgba(31,26,18,0.4);
+}
+
+.ficha-label {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin-bottom: 0.5rem;
+}
+
+.ficha-value {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+@media (max-width: 640px) {
+  .ficha { grid-template-columns: 1fr; gap: 1.5rem; }
+  .ficha-col + .ficha-col { border-left: none; border-top: 1px solid rgba(31,26,18,0.3); padding-top: 1.5rem; }
+}
+
+/* ============================================================
+   COLUMNAS DE PRENSA
+============================================================ */
+.news-columns {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px solid rgba(31,26,18,0.35);
+}
+
+@media (max-width: 720px) {
+  .news-columns { column-count: 1; }
+}
+
+.news-columns p {
+  margin-bottom: 0.85rem;
+  text-align: justify;
+  font-size: 15px;
+  line-height: 1.7;
+  hyphens: auto;
+  orphans: 3;
+  widows: 3;
+}
+
+/* ============================================================
+   AVISO / RECUADRO
+============================================================ */
+.notice {
+  border: 2px solid var(--ink);
+  background: var(--paper-light);
+  padding: 6px;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.notice-inner {
+  border: 1px solid var(--ink);
+  padding: 1.5rem 1.8rem;
+  position: relative;
+}
+
+.notice-label {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--paper-light);
+  padding: 0 14px;
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  white-space: nowrap;
+}
+
+.notice-text {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+/* ============================================================
+   NOTA EDITORIAL
+============================================================ */
+.editorial-note {
+  border-left: 4px solid var(--guinda);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.editorial-note .note-label {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  margin-bottom: 0.5rem;
+}
+
+.editorial-note p {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--sepia-ink);
+}
+
+/* ============================================================
+   GRID DE PRÁCTICAS
+============================================================ */
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 900px) {
+  .practices-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .practices-grid { grid-template-columns: 1fr; }
+}
+
+.practice-card {
+  border: 1px solid var(--ink);
+  background: var(--paper-light);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  text-align: left;
+  font-family: inherit;
+  width: 100%;
+  display: block;
+  padding: 0;
+}
+
+.practice-card::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 4px; right: 4px; bottom: 4px;
+  border: 1px solid var(--ink);
+  pointer-events: none;
+  transition: border-color 0.25s;
+}
+
+.practice-card:hover {
+  background: var(--paper);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--guinda);
+}
+
+.practice-card:hover::before {
+  border-color: var(--guinda);
+}
+
+.practice-card:focus-visible {
+  outline: 3px solid var(--guinda);
+  outline-offset: 4px;
+}
+
+.practice-card-inner {
+  padding: 22px 20px 20px;
+}
+
+.card-label {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-family: 'Abril Fatface', serif;
+  font-size: 21px;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.card-deck {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--sepia-ink);
+  line-height: 1.45;
+}
+
+/* ============================================================
+   NARRADORES
+============================================================ */
+.narrators-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+@media (max-width: 720px) {
+  .narrators-grid { grid-template-columns: 1fr; }
+}
+
+.narrator-card {
+  border: 1px solid var(--ink);
+  background: var(--paper-light);
+  padding: 1.4rem 1.4rem 1.4rem 1.4rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.narrator-monogram {
+  width: 80px; height: 80px;
+  flex-shrink: 0;
+  border: 2px solid var(--ink);
+  background: linear-gradient(135deg, var(--paper-dark), var(--faded));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Abril Fatface', serif;
+  font-size: 32px;
+  color: var(--paper);
+  font-style: italic;
+}
+
+.narrator-meta {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  margin-bottom: 4px;
+}
+
+.narrator-name {
+  font-family: 'Abril Fatface', serif;
+  font-size: 26px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.narrator-bio {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ============================================================
+   COLOFÓN
+============================================================ */
+.colophon {
+  margin-top: 3rem;
+  padding-top: 0;
+  border-top: 2px solid var(--ink);
+}
+
+.colophon-inner {
+  border-top: 1px solid var(--ink);
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+.colophon p {
+  font-size: 13px;
+  color: var(--sepia-ink);
+  margin-bottom: 4px;
+}
+
+.colophon .colophon-label {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin: 1rem 0 4px;
+}
+
+.colophon-strong {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+/* ============================================================
+   PÁGINAS DE PRÁCTICA
+============================================================ */
+.practice-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sepia-ink);
+  text-decoration: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.practice-back:hover { color: var(--guinda); }
+
+.practice-eyebrow {
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  margin-bottom: 0.75rem;
+}
+
+.practice-title {
+  font-family: 'Abril Fatface', serif;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 0.95;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.practice-time {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--sepia-ink);
+  margin-bottom: 2rem;
+}
+
+/* Embed de Canva */
+.embed-section {
+  margin: 2.5rem 0;
+}
+
+.embed-label {
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.embed-title {
+  font-family: 'Abril Fatface', serif;
+  font-size: clamp(28px, 4vw, 38px);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.embed-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--sepia-ink);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.canva-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.canva-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+
+/* ============================================================
+   FRANJA INSTITUCIONAL (logo EGADE encima del masthead)
+============================================================ */
+.institutional-strip {
+  border-bottom: 1px solid var(--ink);
+  padding: 6px 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.institutional-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+  opacity: 0.95;
+}
+
+@media (max-width: 600px) {
+  .institutional-strip {
+    padding: 4px 12px;
+    justify-content: center;
+  }
+  .institutional-logo {
+    height: 22px;
+  }
+}
+
+.embed-foot {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--sepia-ink);
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ============================================================
+   ILUSTRACIONES SVG TIPO GRABADO
+============================================================ */
+
+/* Hero illustration */
+.hero-illustration {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  display: block;
+}
+
+.hero-illustration svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Sello/escudo del Heraldo */
+.heraldo-seal {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.5rem;
+  display: block;
+}
+
+/* Retratos grabados de los narradores */
+.narrator-engraving {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  border: 2px solid var(--ink);
+  background: var(--paper-light);
+  padding: 6px;
+  position: relative;
+}
+
+.narrator-engraving::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border: 1px solid var(--ink);
+  pointer-events: none;
+}
+
+.narrator-engraving svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* Florones ornamentales */
+.fleuron {
+  width: 80px;
+  height: 24px;
+  margin: 0.5rem auto;
+  display: block;
+  color: var(--guinda);
+}
+
+.fleuron-large {
+  width: 140px;
+  height: 36px;
+}
+
+/* Iconos pequeños en tarjetas de práctica */
+.practice-icon {
+  width: 48px;
+  height: 48px;
+  display: block;
+  margin-bottom: 12px;
+  color: var(--guinda);
+  opacity: 0.85;
+}
+
+.practice-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Spot illustrations en páginas de práctica */
+.spot-illustration {
+  width: 100px;
+  height: 100px;
+  margin: 1.5rem auto;
+  display: block;
+  color: var(--ink);
+  opacity: 0.55;
+}
+
+.spot-illustration svg { width: 100%; height: 100%; display: block; }
+
+/* Decoración esquinera tipo prensa antigua */
+.corner-ornament {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  color: var(--ink);
+  opacity: 0.5;
+}
+.corner-ornament-tl { top: 12px; left: 12px; }
+.corner-ornament-tr { top: 12px; right: 12px; transform: scaleX(-1); }
+.corner-ornament-bl { bottom: 12px; left: 12px; transform: scaleY(-1); }
+.corner-ornament-br { bottom: 12px; right: 12px; transform: scale(-1, -1); }
+
+@media (max-width: 640px) {
+  .corner-ornament { display: none; }
+}
+
+/* Botón "Abrir presentación" para fallback elegante */
+.open-presentation {
+  display: block;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+  background: var(--paper-light);
+  padding: 8px;
+  margin: 0 auto;
+  max-width: 520px;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  color: inherit;
+}
+
+.open-presentation::before {
+  content: '';
+  position: absolute;
+  top: 6px; left: 6px; right: 6px; bottom: 6px;
+  border: 1px solid var(--ink);
+  pointer-events: none;
+  transition: border-color 0.25s;
+}
+
+.open-presentation:hover {
+  background: var(--paper);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--guinda);
+}
+
+.open-presentation:hover::before {
+  border-color: var(--guinda);
+}
+
+.open-presentation-eyebrow {
+  display: block;
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  text-align: center;
+  padding: 1.4rem 1rem 0.4rem;
+}
+
+.open-presentation-title {
+  display: block;
+  font-family: 'Abril Fatface', serif;
+  font-size: clamp(28px, 4vw, 38px);
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+  line-height: 1.1;
+  padding: 0.4rem 1rem;
+}
+
+.open-presentation-meta {
+  display: block;
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 13px;
+  text-align: center;
+  color: var(--sepia-ink);
+  padding: 0.4rem 1rem 1.4rem;
+}
+
+/* Bloque encargo */
+.encargo {
+  border-left: 4px solid var(--guinda);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.encargo-label {
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  margin-bottom: 0.75rem;
+}
+
+.encargo-text {
+  font-family: 'Crimson Text', serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+/* Bloque entregable */
+.entregable {
+  border: 2px solid rgba(44,74,46,0.5);
+  background: rgba(44,74,46,0.06);
+  padding: 6px;
+  margin: 2rem 0 3rem;
+}
+
+.entregable-inner {
+  border: 1px solid rgba(44,74,46,0.5);
+  padding: 1.2rem 1.4rem;
+}
+
+.entregable-label {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--bottle);
+  margin-bottom: 0.6rem;
+}
+
+.entregable-text {
+  font-family: 'Crimson Text', serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Navegación entre prácticas */
+.practice-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+.practice-nav button {
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sepia-ink);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.practice-nav button:hover { color: var(--guinda); }
+
+.practice-nav button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.practice-foot {
+  border-top: 2px solid var(--ink);
+  margin-top: 2rem;
+  padding-top: 0;
+}
+
+.practice-foot-inner {
+  border-top: 1px solid var(--ink);
+  padding: 1.8rem 1rem;
+  text-align: center;
+  font-family: 'Crimson Text', serif;
+  font-size: 12px;
+  color: var(--sepia-ink);
+}
+
+.practice-foot-inner em {
+  font-size: 11px;
+  color: var(--faded);
+  display: block;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   UTILIDADES
+============================================================ */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 2.5rem; }
+.mt-6 { margin-top: 3rem; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 2.5rem; }
+.mb-6 { margin-bottom: 3rem; }
+
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================ -->
+<!-- MASTHEAD FIJO                                                -->
+<!-- ============================================================ -->
+<header class="masthead" role="banner">
+  <div class="institutional-strip">
+    <img class="institutional-logo" src="data:image/png;base64,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" alt="EGADE Business School · Tecnológico de Monterrey">
+  </div>
+  <div class="masthead-inner">
+    <div class="masthead-epoch">— Tercera época —</div>
+    <h1 class="masthead-title">El Heraldo del Tenampa</h1>
+    <div class="masthead-rule"></div>
+    <p class="masthead-descriptor">Diario académico de gestión, decisiones, cultura, marca, liderazgo y crónica empresarial</p>
+    <div class="masthead-divider"></div>
+    <p class="masthead-dateline">México · ADE 4067 · Gestión del Cambio · EGADE Business School</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================ -->
+  <!-- PÁGINA 0 · PORTADA                                           -->
+  <!-- ============================================================ -->
+  <div class="page active" id="page-0">
+
+    <!-- Gran titular -->
+    <section class="container">
+      <div class="text-center mt-5">
+
+        <!-- Sello/escudo del Heraldo -->
+        <div class="heraldo-seal" aria-hidden="true">
+          <svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="0.7">
+            <circle cx="55" cy="55" r="52" stroke="#1F1A12" stroke-width="1"/>
+            <circle cx="55" cy="55" r="48" stroke="#1F1A12" stroke-width="0.5"/>
+            <circle cx="55" cy="55" r="36" stroke="#6B1818" stroke-width="0.6" stroke-dasharray="1.5,1.5"/>
+            <text x="55" y="35" text-anchor="middle" font-family="Abril Fatface, serif" font-size="9" fill="#1F1A12" stroke="none" letter-spacing="1">HERALDO</text>
+            <text x="55" y="50" text-anchor="middle" font-family="Playfair Display, serif" font-size="6" font-style="italic" fill="#6B1818" stroke="none">del</text>
+            <text x="55" y="65" text-anchor="middle" font-family="Abril Fatface, serif" font-size="9" fill="#1F1A12" stroke="none" letter-spacing="1.2">TENAMPA</text>
+            <line x1="32" y1="73" x2="78" y2="73" stroke="#1F1A12" stroke-width="0.4"/>
+            <text x="55" y="82" text-anchor="middle" font-family="PT Serif, serif" font-size="4.5" fill="#3A2E1F" stroke="none" letter-spacing="1">EST · MCMXXV</text>
+            <!-- Estrellas decorativas -->
+            <path d="M 18 55 l 1.5 -3 l 1.5 3 l 3 0.5 l -2.2 1.7 l 0.7 3 l -3 -1.5 l -3 1.5 l 0.7 -3 l -2.2 -1.7 z" fill="#6B1818" stroke="none"/>
+            <path d="M 92 55 l 1.5 -3 l 1.5 3 l 3 0.5 l -2.2 1.7 l 0.7 3 l -3 -1.5 l -3 1.5 l 0.7 -3 l -2.2 -1.7 z" fill="#6B1818" stroke="none"/>
+          </svg>
+        </div>
+
+        <p class="kicker kicker-center mb-3">— Edición especial · MMXXVI —</p>
+        <h2 class="grand-headline">Salón <em>Tenampa</em></h2>
+        <p class="subhead-italic mb-3">La rehabilitación de un ícono mexicano</p>
+      </div>
+
+      
+      <div class="rule-thick-thin" style="max-width: 720px; margin: 2rem auto;"></div>
+      <p class="lead">Material asíncrono del curso. Seis partes narradas por dos voces de Plaza Garibaldi, seis prácticas ejecutivas, una sesión presencial de cierre con la doctora.</p>
+    </section>
+
+    <!-- Crónica preliminar -->
+    <section class="container mt-6">
+      <p class="kicker kicker-center mb-1">Crónica preliminar</p>
+      <h3 class="section-title">El caso, en pocas palabras</h3>
+
+      <!-- Florón ornamental -->
+      <div class="fleuron" style="margin: 0.6rem auto;" aria-hidden="true">
+        <svg viewBox="0 0 80 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+          <line x1="0" y1="12" x2="28" y2="12" stroke="currentColor" stroke-width="0.5"/>
+          <line x1="52" y1="12" x2="80" y2="12" stroke="currentColor" stroke-width="0.5"/>
+          <g transform="translate(40,12)">
+            <path d="M -6 0 Q -3 -4 0 -3 Q 3 -4 6 0 Q 3 4 0 3 Q -3 4 -6 0 Z"/>
+            <circle cx="0" cy="0" r="1" fill="#F0E8D8"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="lead mt-1 mb-5" style="font-size: 15px;">Apuntes de contexto antes de la primera práctica</p>
+
+      <div class="news-columns" style="max-width: 760px; margin: 0 auto;">
+        <p class="drop-cap">Enero de 2010. Fer tiene 22 años, estudia Relaciones Internacionales y se imagina trabajando en una organización no lucrativa. Una madrugada, sin aviso, fallece el padre — dueño y operador del Salón Tenampa durante décadas. Durante el funeral, varias personas ya preguntan qué pasará con el negocio.</p>
+        <p>El Tenampa lleva años en pérdida. No hay sistemas. La operación se sostiene de memoria. El señor Jorge, mano derecha del padre durante casi cuarenta años, controla la caja, las zonas de servicio y la relación con proveedores.</p>
+        <p>Hay compradores interesados con ofertas que tienen caducidad. Este material recorre los siguientes trece años en seis partes narradas y seis prácticas ejecutivas. La sesión presencial de cierre es con la Dra. López Pérez en EGADE Business School.</p>
+      </div>
+    </section>
+
+    <!-- Aviso al lector -->
+    <section class="container-narrow mt-6">
+      <div class="notice">
+        <div class="notice-inner">
+          <div class="notice-label">— Aviso al lector —</div>
+          <p class="notice-text mt-1">Las prácticas se irán desbloqueando parte por parte. La docente compartirá el enlace correspondiente al iniciar cada una. No es posible adelantarse: el caso está diseñado para vivirse en orden.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nota editorial -->
+    <section class="container-narrow mt-4">
+      <div class="editorial-note">
+        <div class="note-label">Nota editorial</div>
+        <p>A lo largo de este material, el protagonista aparece referido únicamente como «Fer». No es un dato faltante: es una decisión deliberada para que la atención se concentre en la estructura de las decisiones, no en los supuestos que proyectaríamos sobre la persona.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="rule-thick-thin mt-6"></div>
+    </div>
+
+
+    <!-- Las seis prácticas -->
+    <section class="container mt-5">
+      <div class="text-center mb-5">
+        <p class="kicker kicker-center mb-2">— Sección académica —</p>
+        <h2 class="section-title">Las seis prácticas</h2>
+
+        <!-- Florón ornamental -->
+        <div class="fleuron" style="margin: 1rem auto;" aria-hidden="true">
+          <svg viewBox="0 0 80 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+            <line x1="0" y1="12" x2="28" y2="12" stroke="currentColor" stroke-width="0.5"/>
+            <line x1="52" y1="12" x2="80" y2="12" stroke="currentColor" stroke-width="0.5"/>
+            <g transform="translate(40,12)">
+              <path d="M -6 0 Q -3 -4 0 -3 Q 3 -4 6 0 Q 3 4 0 3 Q -3 4 -6 0 Z"/>
+              <circle cx="0" cy="0" r="1" fill="#F0E8D8"/>
+            </g>
+          </svg>
+        </div>
+
+        <p class="lead mt-2" style="font-size: 15px;">Cada práctica entrena un artefacto directivo distinto. Producidas en Canva Pro con arranque en Canva AI.</p>
+      </div>
+
+      <div class="practices-grid">
+        <button class="practice-card" onclick="goToPage(1)" aria-label="Ir a la Práctica I">
+          <div class="practice-card-inner">
+            <div class="practice-icon" aria-hidden="true">
+              <!-- Icono: pluma sobre memo -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="10" y="6" width="24" height="32" stroke="currentColor"/>
+                <line x1="14" y1="14" x2="30" y2="14"/>
+                <line x1="14" y1="20" x2="30" y2="20"/>
+                <line x1="14" y1="26" x2="26" y2="26"/>
+                <path d="M 28 32 L 38 22 L 42 26 L 32 36 L 26 38 L 28 32 Z" fill="currentColor" fill-opacity="0.15"/>
+                <line x1="36" y1="24" x2="40" y2="28"/>
+              </svg>
+            </div>
+            <div class="card-label">Práctica I</div>
+            <h3 class="card-title">Memo de las primeras 48 horas</h3>
+            <p class="card-deck">Lunes 8:00 p.&nbsp;m. · doce horas antes de la primera reunión</p>
+          </div>
+        </button>
+        <button class="practice-card" onclick="goToPage(2)" aria-label="Ir a la Práctica II">
+          <div class="practice-card-inner">
+            <div class="practice-icon" aria-hidden="true">
+              <!-- Icono: sobre con sello -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="12" width="36" height="26"/>
+                <path d="M 6 14 L 24 28 L 42 14"/>
+                <circle cx="36" cy="34" r="5" fill="currentColor" fill-opacity="0.15"/>
+                <path d="M 33 34 L 35 36 L 39 32" stroke-width="1.2"/>
+              </svg>
+            </div>
+            <div class="card-label">Práctica II</div>
+            <h3 class="card-title">Decision brief · el caso señor Jorge</h3>
+            <p class="card-deck">Tres meses después · evidencia confirmada en cámaras</p>
+          </div>
+        </button>
+        <button class="practice-card" onclick="goToPage(3)" aria-label="Ir a la Práctica III">
+          <div class="practice-card-inner">
+            <div class="practice-icon" aria-hidden="true">
+              <!-- Icono: balanza de decisión -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="24" y1="8" x2="24" y2="40"/>
+                <line x1="14" y1="40" x2="34" y2="40"/>
+                <line x1="10" y1="14" x2="38" y2="14"/>
+                <path d="M 10 14 L 6 24 L 14 24 Z" fill="currentColor" fill-opacity="0.15"/>
+                <path d="M 38 14 L 34 24 L 42 24 Z" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="24" cy="10" r="2"/>
+              </svg>
+            </div>
+            <div class="card-label">Práctica III</div>
+            <h3 class="card-title">Board decision · dos decisiones en un día</h3>
+            <p class="card-deck">Martes 7:30 a.&nbsp;m. · noventa minutos para decidir</p>
+          </div>
+        </button>
+        <button class="practice-card" onclick="goToPage(4)" aria-label="Ir a la Práctica IV">
+          <div class="practice-card-inner">
+            <div class="practice-icon" aria-hidden="true">
+              <!-- Icono: hoja de ruta con hitos -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 6 38 Q 14 28 24 30 Q 34 32 42 22"/>
+                <circle cx="10" cy="36" r="2.5" fill="currentColor"/>
+                <circle cx="24" cy="30" r="2.5" fill="currentColor" fill-opacity="0.15"/>
+                <circle cx="38" cy="24" r="2.5" fill="currentColor"/>
+                <line x1="10" y1="36" x2="10" y2="42" stroke-width="0.8"/>
+                <line x1="24" y1="30" x2="24" y2="42" stroke-width="0.8"/>
+                <line x1="38" y1="24" x2="38" y2="42" stroke-width="0.8"/>
+                <text x="10" y="46" text-anchor="middle" font-family="PT Serif" font-size="4" fill="currentColor" stroke="none">30</text>
+                <text x="24" y="46" text-anchor="middle" font-family="PT Serif" font-size="4" fill="currentColor" stroke="none">60</text>
+                <text x="38" y="46" text-anchor="middle" font-family="PT Serif" font-size="4" fill="currentColor" stroke="none">90</text>
+              </svg>
+            </div>
+            <div class="card-label">Práctica IV</div>
+            <h3 class="card-title">Roadmap de 90 días</h3>
+            <p class="card-deck">Quince meses después · «quiero ver qué sigue, en papel»</p>
+          </div>
+        </button>
+        <button class="practice-card" onclick="goToPage(5)" aria-label="Ir a la Práctica V">
+          <div class="practice-card-inner">
+            <div class="practice-icon" aria-hidden="true">
+              <!-- Icono: tres pasos de inducción -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="28" width="10" height="12"/>
+                <rect x="19" y="20" width="10" height="20"/>
+                <rect x="34" y="12" width="10" height="28"/>
+                <text x="9" y="36" text-anchor="middle" font-family="PT Serif" font-size="6" fill="currentColor" stroke="none">1</text>
+                <text x="24" y="32" text-anchor="middle" font-family="PT Serif" font-size="6" fill="currentColor" stroke="none">2</text>
+                <text x="39" y="28" text-anchor="middle" font-family="PT Serif" font-size="6" fill="currentColor" stroke="none">3</text>
+                <path d="M 14 26 L 19 26" stroke-width="0.8"/>
+                <path d="M 29 18 L 34 18" stroke-width="0.8"/>
+              </svg>
+            </div>
+            <div class="card-label">Práctica V</div>
+            <h3 class="card-title">Inducción de 3 días con criterio go/no-go</h3>
+            <p class="card-deck">Dos años después · rotación alta de meseros estudiantes</p>
+          </div>
+        </button>
+        <button class="practice-card" onclick="goToPage(6)" aria-label="Ir a la Práctica VI">
+          <div class="practice-card-inner">
+            <div class="practice-icon" aria-hidden="true">
+              <!-- Icono: pergamino con sello (propuesta al consejo) -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 10 8 L 38 8 Q 42 8 42 12 L 42 36 Q 42 40 38 40 L 10 40 Q 6 40 6 36 L 6 12 Q 6 8 10 8 Z"/>
+                <line x1="12" y1="16" x2="36" y2="16"/>
+                <line x1="12" y1="22" x2="36" y2="22"/>
+                <line x1="12" y1="28" x2="28" y2="28"/>
+                <circle cx="36" cy="34" r="4" fill="currentColor" fill-opacity="0.2"/>
+                <path d="M 33 34 L 36 32 L 39 36" stroke-width="0.8"/>
+              </svg>
+            </div>
+            <div class="card-label">Práctica VI</div>
+            <h3 class="card-title">Propuesta estratégica 2023-2026</h3>
+            <p class="card-deck">Enero 2023 · 8.5 millones mensuales · cuatro escuchan</p>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- Colofón -->
+    <footer class="colophon">
+      <div class="colophon-inner">
+        <p class="kicker kicker-center mb-2">— Colofón —</p>
+        <p>Caso base · IPADE · C 22 C 07/A y C 22 C 07/B · Diciembre de 2022</p>
+        <p style="font-style: italic;">Rosa Paulina López Pérez · Martha Rivera Pesquera · José Luis Calderón Servín</p>
+
+        <!-- Florón ornamental -->
+        <div class="fleuron fleuron-large" style="margin: 1.5rem auto;" aria-hidden="true">
+          <svg viewBox="0 0 140 36" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+            <line x1="0" y1="18" x2="40" y2="18" stroke="currentColor" stroke-width="0.6"/>
+            <line x1="100" y1="18" x2="140" y2="18" stroke="currentColor" stroke-width="0.6"/>
+            <!-- Flor central estilo barroco de imprenta -->
+            <g transform="translate(70,18)">
+              <path d="M 0 -10 Q 4 -6 8 -10 Q 6 -4 10 0 Q 6 4 8 10 Q 4 6 0 10 Q -4 6 -8 10 Q -6 4 -10 0 Q -6 -4 -8 -10 Q -4 -6 0 -10 Z"/>
+              <circle cx="0" cy="0" r="2" fill="#F0E8D8"/>
+            </g>
+            <circle cx="50" cy="18" r="1.2"/>
+            <circle cx="90" cy="18" r="1.2"/>
+            <path d="M 44 18 L 47 15 L 47 21 Z"/>
+            <path d="M 96 18 L 93 15 L 93 21 Z"/>
+          </svg>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- PÁGINAS DE PRÁCTICA (1-6) — generadas dinámicamente         -->
+  <!-- ============================================================ -->
+  <div class="page" id="page-1"></div>
+  <div class="page" id="page-2"></div>
+  <div class="page" id="page-3"></div>
+  <div class="page" id="page-4"></div>
+  <div class="page" id="page-5"></div>
+  <div class="page" id="page-6"></div>
+
+</main>
+
+<script>
+// ============================================================
+// DATOS DE LAS SEIS PRÁCTICAS
+// ============================================================
+// IMPORTANTE: cada práctica tiene dos campos:
+//   - embedUrl: URL larga de embed que pones cuando tengas el código de "Insertar" de Canva.
+//                Formato: https://www.canva.com/design/[ID]/[KEY]/view?embed
+//                Si está vacía (""), se mostrará el botón "Abrir presentación" en lugar del iframe.
+//   - openUrl:  URL de fallback para abrir en pestaña nueva (los canva.link cortos sirven aquí).
+
+const practices = [
+  {
+    num: "I",
+    title: "Memo de las primeras 48 horas",
+    time: "Lunes 8:00 p.&nbsp;m. · doce horas antes de la primera reunión",
+    introEmbedUrl: "https://www.canva.com/design/DAHI7tCNy0s/QzXofyO-Nqmr_eQx76eskw/watch?embed",
+    introLabel: "Apertura narrada",
+    introTitle: "Voces del barrio",
+    introSub: "Antes de entrar al caso, escucha a los narradores",
+    embedUrl: "https://www.canva.com/design/DAHI6HIVeHU/kpt7vScPpPqHIRV8alg-mA/view?embed",
+    openUrl: "https://canva.link/rnr97cu52nhoa9z",
+    context: [
+      "Los compradores acaban de salir del Tenampa. Tu respuesta fue: no se vende. Ya no hay vuelta atrás. Mañana a las 8:00 a.&nbsp;m. tienes citado al equipo completo en el salón vacío — meseros, capitanes, el cocinero, y también el señor Jorge.",
+      "No conoces a todos por su nombre. A algunos los conociste en el funeral. Esta noche tienes una sola tarea: redactar el memo que servirá de guion para la reunión y de documento que queda en el escritorio. No es un discurso emotivo; es un memo ejecutivo."
+    ],
+    task: "Redacta un memo ejecutivo interno de máximo 400 palabras con cuatro bloques: (1) decisión de continuidad en máximo 4 líneas, (2) tres cosas que sí prometes y tres que explícitamente NO prometes, (3) las tres acciones de esta semana con verbo en primera persona y plazo, (4) ritmo de comunicación interna. Más una agenda de reunión de máximo 45 minutos.",
+    deliverable: "Memo + agenda en un solo PDF. Producido en Canva Pro con arranque en Canva AI (plantilla de Memo o Business Letter). Entrega en Canvas. Tiempo estimado: 35-45 minutos."
+  },
+  {
+    num: "II",
+    title: "Decision brief · el caso señor Jorge",
+    time: "Tres meses después · evidencia confirmada en cámaras",
+    embedUrl: "https://www.canva.com/design/DAHI6WPG4RQ/gqUXFv7oIS38Reyc2IOu8A/view?embed",
+    openUrl: "https://canva.link/f4jjn1dl9d5l4vk",
+    context: [
+      "Llevas tres meses al frente del Tenampa. Las cámaras instaladas hace seis semanas confirman lo que sospechabas: el señor Jorge cobra a los meseros por asignarles las mejores zonas, toma efectivo de las cajas, y a veces no reporta ventas en efectivo. Los capitanes replican el patrón.",
+      "Liquidarlo formalmente costaría cerca de dos millones de pesos por casi cuarenta años de antigüedad. El Tenampa no tiene ese dinero, ni cerca. Tu madre, socia mayoritaria, necesita una decisión esta semana. No puedes esperar a la reunión mensual."
+    ],
+    task: "Redacta un decision brief por email a la socia mayoritaria. Máximo 400 palabras. Asunto, resumen ejecutivo (3 líneas), hechos verificados, incertidumbres explícitas, tres opciones reales con costo y riesgo, recomendación con condiciones de ejecución, y una sola pregunta accionable que tu madre debe responder en 72 horas.",
+    deliverable: "One-page brief en PDF que pueda leerse en pantalla de teléfono sin scroll lateral. Producido en Canva Pro con arranque en Canva AI. Tiempo estimado: 40-50 minutos."
+  },
+  {
+    num: "III",
+    title: "Board decision · dos decisiones en un día",
+    time: "Martes 7:30 a.&nbsp;m. · noventa minutos para decidir",
+    embedUrl: "https://www.canva.com/design/DAHI6ZJz5f4/CkGtKngQLS-2vl-kj9Ev4w/view?embed",
+    openUrl: "https://canva.link/9isw92c2en7s9bd",
+    context: [
+      "Tu madre llegó al Tenampa con café y la carpeta del negocio bajo el brazo. Se sienta frente a ti y dice: tenemos que decidir hoy dos cosas — qué hacemos con el señor Jorge y cómo pagamos las nóminas de los próximos seis meses. Tiene razón: ninguna puede esperar reunión formal de consejo.",
+      "La opción 1 no puede ser «despedir ya». La opción 3 no puede ser «no hacer nada». Ambas son insultantes a la complejidad del problema. Necesitas tres opciones reales por cada decisión."
+    ],
+    task: "Prepara un paquete ejecutivo: tabla con tres opciones reales por decisión (costo inmediato, costo de oportunidad, riesgo principal con mitigación, ventaja única). Tu recomendación con criterios de éxito a 30 y 90 días. Plan B para la decisión más frágil. Tres líneas exactas que tu madre firma al cierre de la reunión.",
+    deliverable: "Presentación ejecutiva de 4-5 slides o one-pager con tabla comparativa. Máximo 600 palabras. PDF a Canvas. Tiempo estimado: 50-70 minutos."
+  },
+  {
+    num: "IV",
+    title: "Roadmap de 90 días · cinco iniciativas",
+    time: "Quince meses después · «quiero ver qué sigue, en papel»",
+    embedUrl: "https://www.canva.com/design/DAHI6Q7tWdY/kJja7UzbOEX4ielYORmBSA/view?embed",
+    openUrl: "https://canva.link/fhhv494182cz7x6",
+    context: [
+      "El señor Jorge ya fue liquidado formalmente hace seis semanas. Tres capitanes nuevos fueron contratados — dos se quedaron, uno no funcionó. Los primeros patrocinios de proveedores ya están firmados. La caja está apretada pero la operación se sostiene.",
+      "Tu madre te pidió ver qué sigue, pero en papel. La restricción es radical: cinco iniciativas, ni una más. Al menos una debe ser de control operativo. Al menos una debe ser de gente. La cultura no se construye solo con procesos."
+    ],
+    task: "Diseña el roadmap operativo de los próximos 90 días con exactamente cinco iniciativas priorizadas. Tabla con responsable nombrado, recursos en semanas-persona y dinero, hito al día 30, métrica a 90. Narrativa de priorización (200 palabras) y bloque «lo que NO vamos a hacer este trimestre» (150 palabras, al menos dos cortes específicos).",
+    deliverable: "Roadmap visual horizontal en tres bloques (día 1-30, 31-60, 61-90) + tabla de iniciativas. PDF en Canvas. Tiempo estimado: 50-70 minutos."
+  },
+  {
+    num: "V",
+    title: "Inducción de 3 días con criterio go/no-go",
+    time: "Dos años después · rotación alta de meseros estudiantes",
+    embedUrl: "https://www.canva.com/design/DAHI6dq24G0/tPDOZIJ8sFO71izhscthcg/view?embed",
+    openUrl: "https://canva.link/gx0jps3re7ui1qt",
+    context: [
+      "El equipo original del señor Jorge ya no está. La plantilla es estable y crece. Pero la rotación de meseros es alta porque muchos son estudiantes que se quedan seis u ocho meses. Necesitas un proceso de inducción que cumpla dos objetivos simultáneos.",
+      "Uno: transmitir de manera sólida qué es el Tenampa — la historia, el ambiente, la excelencia de servicio. Dos: permitirte decidir al final del tercer día si esa persona se queda. Y la inducción no puede ocupar el turno completo — el salón sigue operando."
+    ],
+    task: "Diseña el programa de inducción hora por hora de tres días (entre 9 y 15 horas totales, con horarios realistas). Una rúbrica go/no-go con 5-7 criterios observables — al menos uno sobre historia y conocimiento cultural del Tenampa. Dos protocolos textuales de cierre del día 3: uno para quien se queda, otro para quien no. Identifica un límite ético o legal que queda fuera del diseño.",
+    deliverable: "Programa + rúbrica + protocolos en un solo PDF unificado. Producido en Canva Pro con arranque en Canva AI. Tiempo estimado: 45-60 minutos."
+  },
+  {
+    num: "VI",
+    title: "Propuesta estratégica 2023-2026 al consejo",
+    time: "Enero 2023 · 8.5 millones mensuales · cuatro escuchan",
+    embedUrl: "https://www.canva.com/design/DAHI6U6VVKc/MUikVtnMMKrX5zNEkEZCzw/view?embed",
+    openUrl: "https://canva.link/h27waont2qfauat",
+    context: [
+      "2022 cerró con ventas promedio de 8.5 millones de pesos mensuales. La marca creció en redes — 121,000 seguidores en Facebook, 16,000 en Instagram. El equipo es sólido. Tu madre sigue como socia mayoritaria. Tu tío, socio minoritario, sigue ruidoso.",
+      "Sumaste al consejo dos asesoras externas: una con perfil financiero, otra con experiencia en hostelería. Cuatro personas van a escuchar tu propuesta para los próximos tres años. Esto no es un plan de 40 páginas — es una página que el consejo lee en cinco minutos y decide en treinta."
+    ],
+    task: "Una propuesta estratégica ejecutiva: diagnóstico 2022 en tres bullets con dato duro, tesis estratégica en una sola frase (si necesita dos comas y conjunción adversativa, reescríbela), tres iniciativas priorizadas con horizonte de impacto, qué cosas concretas dejas de hacer (al menos dos cortes), inversión agregada con composición, y una pregunta genuina al consejo.",
+    deliverable: "Executive one-pager. Máximo 600 palabras. PDF en Canvas. Tiempo estimado: 60-90 minutos. Esta práctica se simula en la sesión presencial: cuatro compañeros hacen de consejo, una persona defiende su propuesta."
+  }
+];
+
+// ============================================================
+// RENDER DE PÁGINAS DE PRÁCTICA
+// ============================================================
+function renderPractice(p, idx) {
+  const prevBtn = idx > 1
+    ? `<button onclick="goToPage(${idx - 1})">← Práctica anterior</button>`
+    : `<div></div>`;
+  const nextBtn = idx < 6
+    ? `<button onclick="goToPage(${idx + 1})">Práctica siguiente →</button>`
+    : `<div></div>`;
+
+  // Si hay embedUrl válida (canva.com/design/...?embed), usamos iframe.
+  // Si no, mostramos un botón grande para abrir en pestaña nueva.
+  const presentationBlock = p.embedUrl
+    ? `
+        <div class="canva-embed">
+          <iframe
+            src="${p.embedUrl}"
+            allowfullscreen
+            allow="fullscreen"
+            loading="lazy"
+            title="Presentación de la sesión ${p.num}"></iframe>
+        </div>
+        <p class="embed-foot">Si la presentación no carga aquí, <a href="${p.openUrl}" target="_blank" rel="noopener" style="color: var(--guinda);">ábrela en una pestaña nueva</a>.</p>
+      `
+    : `
+        <a class="open-presentation" href="${p.openUrl}" target="_blank" rel="noopener">
+          <span class="open-presentation-eyebrow">Diseño de Canva</span>
+          <span class="open-presentation-title">Abrir presentación</span>
+          <span class="open-presentation-meta">Se abrirá en una pestaña nueva ↗</span>
+        </a>
+        <p class="embed-foot">Avanza a tu propio ritmo. Vuelve a esta página cuando estés listo para el encargo.</p>
+      `;
+
+  // Si la práctica tiene un recurso introductorio (video narrado, apertura, etc.),
+  // se renderiza ANTES del bloque principal de presentación, con su propia etiqueta.
+  const introBlock = p.introEmbedUrl
+    ? `
+      <section class="embed-section">
+        <div class="rule-thick-thin"></div>
+        <p class="embed-label mb-1">— ${p.introLabel || 'Apertura'} —</p>
+        <h2 class="embed-title">${p.introTitle || 'Apertura narrada'}</h2>
+        <p class="embed-sub">${p.introSub || 'Antes de entrar al caso'}</p>
+        <div class="canva-embed">
+          <iframe
+            src="${p.introEmbedUrl}"
+            allowfullscreen
+            allow="fullscreen"
+            loading="lazy"
+            title="Apertura de la sesión ${p.num}"></iframe>
+        </div>
+      </section>
+    `
+    : '';
+
+  return `
+    <article class="container-narrow" style="padding-top: 2.5rem; padding-bottom: 2rem;">
+
+      <button class="practice-back" onclick="goToPage(0)">← Volver a la portada</button>
+
+      <p class="practice-eyebrow">Parte ${p.num} · Práctica ${p.num}</p>
+      <h1 class="practice-title">${p.title}</h1>
+      <p class="practice-time">${p.time}</p>
+
+      <div class="rule-double"></div>
+
+      <p class="kicker mb-3">Crónica de la parte</p>
+      <p class="body-text drop-cap">${p.context[0]}</p>
+      <p class="body-text">${p.context[1]}</p>
+
+      ${introBlock}
+
+      <section class="embed-section">
+        <div class="rule-thick-thin"></div>
+        <p class="embed-label mb-1">— Material de la sesión —</p>
+        <h2 class="embed-title">Presentación narrada</h2>
+        <p class="embed-sub">Avanza la presentación a tu ritmo</p>
+        ${presentationBlock}
+        <div class="rule-thick-thin"></div>
+      </section>
+
+      <div class="encargo">
+        <div class="encargo-label">Tu encargo</div>
+        <p class="encargo-text">${p.task}</p>
+      </div>
+
+      <div class="entregable">
+        <div class="entregable-inner">
+          <div class="entregable-label">Entregable</div>
+          <p class="entregable-text">${p.deliverable}</p>
+        </div>
+      </div>
+
+      <div class="rule-double"></div>
+
+      <nav class="practice-nav">
+        ${prevBtn}
+        ${nextBtn}
+      </nav>
+
+    </article>
+
+    <footer class="practice-foot">
+      <div class="practice-foot-inner">
+        Caso base · IPADE C 22 C 07/A y B · Diciembre de 2022
+        <em>López Pérez · Rivera Pesquera · Calderón Servín</em>
+      </div>
+    </footer>
+  `;
+}
+
+// Inyectar el contenido en cada página de práctica
+practices.forEach((p, i) => {
+  const idx = i + 1;
+  document.getElementById(`page-${idx}`).innerHTML = renderPractice(p, idx);
+});
+
+// ============================================================
+// NAVEGACIÓN ENTRE PÁGINAS
+// ============================================================
+function goToPage(idx) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(`page-${idx}`).classList.add('active');
+  // Actualizar el hash de la URL para que sea compartible
+  history.replaceState(null, '', idx === 0 ? window.location.pathname : `#practica-${idx}`);
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+// Soportar carga directa por hash (ej. #practica-3)
+window.addEventListener('load', () => {
+  const match = window.location.hash.match(/^#practica-(\d)$/);
+  if (match) {
+    const idx = parseInt(match[1], 10);
+    if (idx >= 1 && idx <= 6) goToPage(idx);
+  }
+});
+
+// Soportar navegación con teclado (← →)
+document.addEventListener('keydown', (e) => {
+  const active = document.querySelector('.page.active');
+  if (!active) return;
+  const currentIdx = parseInt(active.id.split('-')[1], 10);
+  if (e.key === 'ArrowLeft' && currentIdx > 0) goToPage(currentIdx - 1);
+  if (e.key === 'ArrowRight' && currentIdx < 6) goToPage(currentIdx + 1);
+});
+</script>
+
+</body>
+</html>
