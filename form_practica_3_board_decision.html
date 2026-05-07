@@ -1166,5 +1166,39 @@ form.addEventListener('submit', async (e) => {
 
 </script>
 
+
+<!-- Botón flotante volver a portada -->
+<style>
+.btn-home {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #6B1818;
+  color: #F5EFE0;
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.6rem 1.1rem 0.6rem 0.9rem;
+  border: 1px solid rgba(245,239,224,0.25);
+  box-shadow: 0 2px 12px rgba(31,26,18,0.35);
+  transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.btn-home:hover {
+  background: #8B2828;
+  box-shadow: 0 4px 18px rgba(31,26,18,0.45);
+  transform: translateY(-1px);
+}
+.btn-home-arrow { font-size: 1rem; line-height: 1; }
+</style>
+<a class="btn-home" href="index.html" aria-label="Volver a la portada">
+  <span class="btn-home-arrow">←</span>
+  <span>Portada</span>
+</a>
 </body>
 </html>
