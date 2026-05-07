@@ -994,6 +994,8 @@ p.body-text {
   cursor: not-allowed;
 }
 
+
+
 .practice-foot {
   border-top: 2px solid var(--ink);
   margin-top: 2rem;
@@ -1511,6 +1513,7 @@ function renderPractice(p, idx) {
 
       <nav class="practice-nav">
         ${prevBtn}
+        <button class="practice-nav-home" onclick="goToPage(0)">↑ Portada</button>
         ${nextBtn}
       </nav>
 
