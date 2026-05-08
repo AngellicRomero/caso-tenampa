@@ -1,0 +1,10 @@
+# Archivos de Microsoft Office
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+
+# macOS
+.DS_Store
