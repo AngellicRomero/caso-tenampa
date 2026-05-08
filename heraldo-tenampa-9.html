@@ -1367,7 +1367,7 @@ const practices = [
     introTitle: "Historia del Salón Tenampa",
     introSub: "Antes de entrar al caso, escucha la historia del Salón Tenampa y las condiciones en las que lo dejó el Señor Aguilera",
     embedUrl: "https://www.canva.com/design/DAHI6HIVeHU/kpt7vScPpPqHIRV8alg-mA/view?embed",
-    openUrl: "https://canva.link/rnr97cu52nhoa9z",
+    openUrl: "https://www.canva.com/design/DAHI6HIVeHU/kpt7vScPpPqHIRV8alg-mA/view?utm_content=DAHI6HIVeHU&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
     context: [
       "Los «posibles» compradores acaban de salir del funeral. La primera decisión a la que te enfrentas es «vender o no vender». Tu decisión todavía es incierta.",
       "Esta noche tienes una sola tarea: decidir el futuro de la dirección del Salón Tenampa. Si vendes, tus sueños de perseguir una carrera enfocada en lo que esperabas, se pierde. Si no vendes, el reto de rescatar una cantina de más de 80 años será todo tuyo."
@@ -1453,20 +1453,16 @@ function renderPractice(p, idx) {
     ? `<button onclick="goToPage(${idx + 1})">Práctica siguiente →</button>`
     : `<div></div>`;
 
-  // Si hay embedUrl válida (canva.com/design/...?embed), usamos iframe.
-  // Si no, mostramos un botón grande para abrir en pestaña nueva.
+  const canvaIframeWrapper = (src, openUrl, label) => `
+    <div style="position:relative;width:100%;height:0;padding-top:56.25%;padding-bottom:0;box-shadow:0 2px 8px 0 rgba(63,69,81,0.16);margin-top:1.6em;margin-bottom:0.9em;overflow:hidden;border-radius:8px;will-change:transform;">
+      <iframe loading="lazy" style="position:absolute;width:100%;height:100%;top:0;left:0;border:none;padding:0;margin:0;"
+        src="${src}" allowfullscreen="allowfullscreen" allow="fullscreen"></iframe>
+    </div>
+    <p class="embed-foot"><a href="${openUrl}" target="_blank" rel="noopener" style="color:var(--guinda);">${label || 'Abrir en Canva ↗'}</a></p>
+  `;
+
   const presentationBlock = p.embedUrl
-    ? `
-        <div class="canva-embed">
-          <iframe
-            src="${p.embedUrl}"
-            allowfullscreen
-            allow="fullscreen"
-            loading="lazy"
-            title="Presentación de la sesión ${p.num}"></iframe>
-        </div>
-        <p class="embed-foot">Si la presentación no carga aquí, <a href="${p.openUrl}" target="_blank" rel="noopener" style="color: var(--guinda);">ábrela en una pestaña nueva</a>.</p>
-      `
+    ? canvaIframeWrapper(p.embedUrl, p.openUrl, `Abrir presentación – Práctica ${p.num} ↗`)
     : `
         <a class="open-presentation" href="${p.openUrl}" target="_blank" rel="noopener">
           <span class="open-presentation-eyebrow">Diseño de Canva</span>
@@ -1476,8 +1472,6 @@ function renderPractice(p, idx) {
         <p class="embed-foot">Avanza a tu propio ritmo. Vuelve a esta página cuando estés listo para el encargo.</p>
       `;
 
-  // Si la práctica tiene un recurso introductorio (video narrado, apertura, etc.),
-  // se renderiza ANTES del bloque principal de presentación, con su propia etiqueta.
   const introBlock = p.introEmbedUrl
     ? `
       <section class="embed-section">
@@ -1485,14 +1479,7 @@ function renderPractice(p, idx) {
         <p class="embed-label mb-1">— ${p.introLabel || 'Apertura'} —</p>
         <h2 class="embed-title">${p.introTitle || 'Apertura narrada'}</h2>
         <p class="embed-sub">${p.introSub || 'Antes de entrar al caso'}</p>
-        <div class="canva-embed">
-          <iframe
-            src="${p.introEmbedUrl}"
-            allowfullscreen
-            allow="fullscreen"
-            loading="lazy"
-            title="Apertura de la sesión ${p.num}"></iframe>
-        </div>
+        ${canvaIframeWrapper(p.introEmbedUrl, p.introOpenUrl || p.introEmbedUrl, `Abrir audio introductorio ↗`)}
       </section>
     `
     : '';
