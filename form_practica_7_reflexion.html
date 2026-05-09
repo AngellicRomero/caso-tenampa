@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Heraldo del Tenampa · Reflexión Final · Valores del Caso</title>
+<meta name="description" content="Reflexión final del Caso Tenampa · ADE 4067 Gestión del Cambio · EGADE Business School">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #E8DFCE;
+  --paper-dark: #DDD2BE;
+  --paper-light: #F0E8D8;
+  --paper-lighter: #F5EFE0;
+  --ink: #1F1A12;
+  --sepia-ink: #3A2E1F;
+  --guinda: #6B1818;
+  --guinda-light: #8B2828;
+  --faded: #86755C;
+  --bottle: #2C4A2E;
+  --gold: #B8960C;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Text', 'PT Serif', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(120,80,30,0.06), transparent 40%),
+    radial-gradient(ellipse at 85% 60%, rgba(80,50,15,0.05), transparent 50%),
+    radial-gradient(ellipse at 50% 90%, rgba(100,70,20,0.04), transparent 45%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch' seed='5'/><feColorMatrix values='0 0 0 0 0.20 0 0 0 0 0.16 0 0 0 0 0.10 0 0 0 0.10 0'/></filter><rect width='600' height='600' filter='url(%23n)'/></svg>");
+  background-attachment: fixed;
+}
+
+/* MASTHEAD */
+.masthead {
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+  box-shadow: 0 2px 0 var(--ink), 0 4px 0 var(--paper), 0 5px 0 var(--ink);
+  padding: 14px 16px 16px;
+  position: relative;
+}
+.masthead-inner { max-width: 980px; margin: 0 auto; position: relative; }
+.masthead-epoch { font-family: 'PT Serif', serif; font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase; text-align: center; color: var(--ink); padding: 2px 0; }
+.masthead-title { font-family: 'Abril Fatface', serif; font-weight: 400; font-size: clamp(26px, 5vw, 46px); text-align: center; color: var(--ink); letter-spacing: 0.005em; line-height: 0.95; margin: 4px 0 6px; text-transform: uppercase; }
+.masthead-rule { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); height: 3px; margin: 2px 0; }
+.masthead-descriptor { font-family: 'PT Serif', serif; font-style: italic; font-size: 11px; text-align: center; color: var(--sepia-ink); padding: 4px 0; letter-spacing: 0.01em; }
+.masthead-divider { border-top: 1px solid var(--ink); margin: 0; }
+.masthead-dateline { font-family: 'PT Serif', serif; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; text-align: center; color: var(--ink); padding: 5px 0 2px; }
+
+/* MAIN */
+main { padding: 2.5rem 0 5rem; }
+.container { max-width: 620px; margin: 0 auto; padding: 0 20px; }
+
+/* TIPOGRAFÍA */
+.practice-eyebrow { font-family: 'PT Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--guinda); margin-bottom: 0.75rem; text-align: center; }
+.practice-title { font-family: 'Abril Fatface', serif; font-size: clamp(28px, 5vw, 46px); line-height: 1; color: var(--ink); text-transform: uppercase; margin-bottom: 0.6rem; text-align: center; }
+.practice-time { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--sepia-ink); margin-bottom: 1.5rem; text-align: center; }
+.kicker { font-family: 'PT Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--guinda); }
+.kicker-center { text-align: center; }
+.body-text { font-size: 17px; line-height: 1.7; margin-bottom: 1.2rem; color: var(--sepia-ink); }
+
+/* FILETES */
+.rule-double { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); height: 3px; margin: 2.5rem 0; }
+.rule-thick-thin { border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); height: 5px; margin: 2rem 0; }
+
+/* EMBLEM */
+.emblem-wrap { text-align: center; margin: 1.4rem 0; }
+.emblem-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 18px rgba(0,0,0,0.28); }
+
+/* ENCARGO */
+.encargo { border-left: 4px solid var(--guinda); padding: 0.5rem 0 0.5rem 1.5rem; margin: 2rem 0; }
+.encargo-label { font-family: 'PT Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--guinda); margin-bottom: 0.75rem; }
+.encargo-text { font-family: 'Crimson Text', serif; font-size: 16px; line-height: 1.7; color: var(--ink); }
+
+/* FORMULARIO */
+.form-section { margin: 2rem 0; border: 2px solid var(--ink); background: var(--paper-light); padding: 8px; }
+.form-section-inner { border: 1px solid var(--ink); padding: 2rem 1.8rem; position: relative; }
+.form-section-label { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--paper-light); padding: 0 14px; font-family: 'PT Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--guinda); white-space: nowrap; }
+.form-group { margin-bottom: 1.6rem; }
+.form-group:last-child { margin-bottom: 0; }
+.form-label { display: block; font-family: 'PT Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sepia-ink); margin-bottom: 0.5rem; }
+.form-hint { display: block; font-family: 'Crimson Text', serif; font-style: italic; font-size: 13px; color: var(--faded); margin-bottom: 0.5rem; line-height: 1.4; }
+.form-input, .form-textarea, .form-select { width: 100%; padding: 10px 12px; font-family: 'Crimson Text', 'PT Serif', Georgia, serif; font-size: 15px; line-height: 1.5; color: var(--ink); background: var(--paper-lighter); border: 1px solid var(--ink); border-radius: 0; transition: background 0.2s, box-shadow 0.2s; }
+.form-input:focus, .form-textarea:focus, .form-select:focus { outline: none; background: #fff; box-shadow: 2px 2px 0 var(--guinda); }
+.form-textarea { resize: vertical; min-height: 80px; font-family: 'Crimson Text', serif; }
+.form-textarea-large { min-height: 160px; }
+.form-counter { display: block; text-align: right; font-family: 'PT Serif', serif; font-size: 11px; color: var(--faded); margin-top: 4px; letter-spacing: 0.05em; }
+.form-counter.over { color: var(--guinda); font-weight: 700; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 580px) { .form-row { grid-template-columns: 1fr; } }
+
+/* CHECKLIST DE VALORES */
+.valores-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin-top: 0.4rem;
+}
+
+.valor-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border: 1px solid var(--ink);
+  background: var(--paper-lighter);
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+  position: relative;
+}
+
+.valor-option:hover {
+  background: var(--paper);
+  box-shadow: 3px 3px 0 var(--guinda);
+}
+
+.valor-option input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper-lighter);
+  cursor: pointer;
+  margin-top: 2px;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.valor-option input[type="checkbox"]:checked {
+  background: var(--guinda);
+  border-color: var(--guinda);
+}
+
+.valor-option input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 7px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.valor-option.selected {
+  border-color: var(--guinda);
+  background: rgba(107,24,24,0.05);
+}
+
+.valor-label {
+  flex: 1;
+}
+
+.valor-nombre {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.valor-desc {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--faded);
+  line-height: 1.4;
+}
+
+/* BOTÓN */
+.submit-area { text-align: center; margin: 2.5rem 0 1rem; }
+.btn-submit { display: inline-block; padding: 14px 36px; font-family: 'PT Serif', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--paper-light); background: var(--ink); border: 2px solid var(--ink); cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
+.btn-submit:hover:not(:disabled) { background: var(--guinda); border-color: var(--guinda); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* MENSAJES */
+.success-message { display: none; border: 2px solid var(--bottle); background: rgba(44,74,46,0.06); padding: 8px; margin: 2rem 0; text-align: center; }
+.success-message.active { display: block; animation: pageIn 0.5s ease; }
+.success-inner { border: 1px solid var(--bottle); padding: 2rem 1.5rem; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.success-eyebrow { font-family: 'PT Serif', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--bottle); margin-bottom: 0.6rem; }
+.success-title { font-family: 'Abril Fatface', serif; font-size: 32px; color: var(--ink); margin-bottom: 0.6rem; text-transform: uppercase; line-height: 1; }
+.success-text { font-family: 'Crimson Text', serif; font-style: italic; font-size: 15px; color: var(--sepia-ink); line-height: 1.5; }
+.error-message { display: none; border-left: 4px solid var(--guinda); background: rgba(107,24,24,0.08); padding: 1rem 1.4rem; margin: 1rem 0; }
+.error-message.active { display: block; }
+.error-message p { font-family: 'Crimson Text', serif; font-style: italic; font-size: 14px; color: var(--guinda); }
+
+/* FOOTER */
+.practice-foot { border-top: 2px solid var(--ink); margin-top: 3rem; padding-top: 0; }
+.practice-foot-inner { border-top: 1px solid var(--ink); padding: 1.6rem 1rem; text-align: center; font-family: 'Crimson Text', serif; font-size: 12px; color: var(--sepia-ink); }
+.practice-foot-inner em { font-size: 11px; color: var(--faded); display: block; margin-top: 4px; font-style: italic; }
+
+/* BOTÓN FIJO INICIO */
+.btn-home-fixed {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 14px;
+  z-index: 200;
+  background: var(--guinda);
+  color: #f5efe0;
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1.5px solid #f5efe0;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.btn-home-fixed:hover { background: #8B2828; }
+</style>
+</head>
+<body>
+
+<a class="btn-home-fixed" href="heraldo-tenampa-9.html" title="Volver al inicio">← Inicio</a>
+
+<header class="masthead" role="banner">
+  <div class="masthead-inner">
+    <div class="masthead-epoch">— Tercera época —</div>
+    <div class="masthead-title">El Heraldo del Tenampa</div>
+    <div class="masthead-rule"></div>
+    <p class="masthead-descriptor">Diario académico de gestión, decisiones, cultura, marca, liderazgo y crónica empresarial</p>
+    <div class="masthead-divider"></div>
+    <p class="masthead-dateline">México · ADE 4067 · Gestión del Cambio · EGADE Business School</p>
+  </div>
+</header>
+
+<main>
+<div class="container">
+
+  <div class="emblem-wrap">
+    <img class="emblem-img" src="logo-tenampa-100.png" alt="Tenampa · 100 años de tradición">
+  </div>
+
+  <p class="practice-eyebrow">Reflexión final · Caso Tenampa</p>
+  <h1 class="practice-title">Valores del caso</h1>
+  <p class="practice-time">Crecimiento · Posicionamiento · Propuesta de valor</p>
+
+  <div class="rule-double"></div>
+
+  <p class="body-text">A lo largo del caso exploraste tres ejes estratégicos que definen la identidad y el futuro del Salón Tenampa. Elige el valor —o los valores— que más resonaron contigo y argumenta por qué.</p>
+
+  <div class="encargo">
+    <div class="encargo-label">Tu reflexión</div>
+    <p class="encargo-text">Selecciona al menos un valor del caso Tenampa. Luego argumenta en máximo 400 palabras: ¿qué te gustó de ese eje? ¿qué aprendiste? ¿cómo lo conectas con tu visión de la gestión del cambio?</p>
+  </div>
+
+  <div class="rule-thick-thin"></div>
+
+  <div id="success-box" class="success-message">
+    <div class="success-inner">
+      <p class="success-eyebrow">Reflexión recibida</p>
+      <p class="success-title">¡Gracias!</p>
+      <p class="success-text">Tu reflexión quedó registrada. La docente la revisará antes de la sesión de cierre.</p>
+    </div>
+  </div>
+
+  <div id="error-box" class="error-message"><p></p></div>
+
+  <form id="practice-form" novalidate>
+
+    <!-- Identificación -->
+    <div class="form-section">
+      <div class="form-section-inner">
+        <span class="form-section-label">Identificación</span>
+
+        <div class="form-group">
+          <label class="form-label" for="nombre">Nombre completo</label>
+          <input class="form-input" type="text" id="nombre" name="nombre" required placeholder="Tu nombre como aparece en Blackboard">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="matricula">Matrícula</label>
+            <input class="form-input" type="text" id="matricula" name="matricula" required placeholder="A0XXXXXXX">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="seccion">Sección</label>
+            <input class="form-input" type="text" id="seccion" name="seccion" placeholder="Ej. 601">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Correo institucional</label>
+          <input class="form-input" type="email" id="email" name="email" required placeholder="tu@egade.mx">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Checklist de valores -->
+    <div class="form-section">
+      <div class="form-section-inner">
+        <span class="form-section-label">Valores del caso</span>
+
+        <div class="form-group">
+          <label class="form-label">Selecciona el valor (o valores) que más resonaron contigo</label>
+          <span class="form-hint">Puedes elegir uno, dos o los tres. Mínimo uno requerido.</span>
+
+          <div class="valores-grid">
+
+            <label class="valor-option" id="opt-crecimiento">
+              <input type="checkbox" name="valor_crecimiento" value="Crecimiento" id="chk-crecimiento">
+              <div class="valor-label">
+                <span class="valor-nombre">Crecimiento</span>
+                <span class="valor-desc">Cómo Fer hizo crecer el Salón Tenampa y las implicaciones organizativas y financieras de ese crecimiento.</span>
+              </div>
+            </label>
+
+            <label class="valor-option" id="opt-posicionamiento">
+              <input type="checkbox" name="valor_posicionamiento" value="Posicionamiento Marca Tenampa" id="chk-posicionamiento">
+              <div class="valor-label">
+                <span class="valor-nombre">Posicionamiento Marca Tenampa</span>
+                <span class="valor-desc">Una marca presente en el imaginario colectivo por más de 80 años y su potencial estratégico en el siglo XXI.</span>
+              </div>
+            </label>
+
+            <label class="valor-option" id="opt-propuesta">
+              <input type="checkbox" name="valor_propuesta" value="Propuesta de Valor" id="chk-propuesta">
+              <div class="valor-label">
+                <span class="valor-nombre">Propuesta de Valor</span>
+                <span class="valor-desc">La oferta diferenciada del Tenampa: tradición, experiencia, cultura e identidad mexicana como ventaja competitiva.</span>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Argumentación -->
+    <div class="form-section">
+      <div class="form-section-inner">
+        <span class="form-section-label">Argumentación y reflexión</span>
+
+        <div class="form-group">
+          <label class="form-label" for="reflexion">¿Qué te gustó? ¿Qué aprendiste? ¿Cómo lo conectas con la gestión del cambio?</label>
+          <span class="form-hint">Máximo 400 palabras. Escribe con libertad — esto no es un brief ejecutivo, es tu voz.</span>
+          <textarea class="form-textarea form-textarea-large" id="reflexion" name="reflexion" maxlength="2400" data-counter="true" required placeholder="Argumenta tu elección. ¿Qué aspecto del crecimiento, del posicionamiento o de la propuesta de valor del Tenampa te pareció más significativo, desafiante o revelador? ¿Qué llevas contigo después de este caso?"></textarea>
+          <span class="form-counter" data-for="reflexion">0 / 2400</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mejora">¿Qué mejorarías de la marca o la gestión del Tenampa?</label>
+          <span class="form-hint">Opcional · máximo 200 palabras. Una idea concreta, accionable.</span>
+          <textarea class="form-textarea" id="mejora" name="mejora" maxlength="1200" data-counter="true" placeholder="Una oportunidad que identificas a partir del caso…"></textarea>
+          <span class="form-counter" data-for="mejora">0 / 1200</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Enviar -->
+    <div class="submit-area">
+      <button type="submit" class="btn-submit" id="submit-btn">Enviar reflexión</button>
+    </div>
+
+  </form>
+
+</div>
+</main>
+
+<footer class="practice-foot">
+  <div class="practice-foot-inner">
+    Reflexión final · ADE 4067 Gestión del Cambio · EGADE Business School · Tecnológico de Monterrey
+    <em>Caso base · IPADE · C 22 C 07/A y C 22 C 07/B · Diciembre de 2022</em>
+  </div>
+</footer>
+
+<script>
+// === CONFIGURACIÓN ===
+const BACKEND_URL = 'REEMPLAZA_AQUI_CON_URL_DE_APPS_SCRIPT';
+const PRACTICA_NUM = 7;
+const PRACTICA_TITULO = 'Reflexión final · valores del caso Tenampa';
+// =====================
+
+// Resaltar opciones al marcar checkbox
+document.querySelectorAll('.valor-option').forEach(opt => {
+  const chk = opt.querySelector('input[type="checkbox"]');
+  const sync = () => opt.classList.toggle('selected', chk.checked);
+  chk.addEventListener('change', sync);
+  sync();
+});
+
+// Contadores de caracteres
+document.querySelectorAll('[data-counter="true"]').forEach(el => {
+  const counter = document.querySelector(`[data-for="${el.id}"]`);
+  if (!counter) return;
+  const max = parseInt(el.getAttribute('maxlength'), 10);
+  const update = () => {
+    const len = el.value.length;
+    counter.textContent = `${len} / ${max}`;
+    counter.classList.toggle('over', len >= max);
+  };
+  el.addEventListener('input', update);
+  update();
+});
+
+// Submit
+const form = document.getElementById('practice-form');
+const submitBtn = document.getElementById('submit-btn');
+const successBox = document.getElementById('success-box');
+const errorBox = document.getElementById('error-box');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  errorBox.classList.remove('active');
+
+  // Validar al menos un valor seleccionado
+  const valoresSeleccionados = [
+    document.getElementById('chk-crecimiento'),
+    document.getElementById('chk-posicionamiento'),
+    document.getElementById('chk-propuesta')
+  ].filter(c => c.checked).map(c => c.value);
+
+  if (valoresSeleccionados.length === 0) {
+    errorBox.classList.add('active');
+    errorBox.querySelector('p').textContent = 'Selecciona al menos un valor del caso antes de enviar.';
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando…';
+
+  const formData = new FormData(form);
+  const data = {};
+  formData.forEach((v, k) => { data[k] = v; });
+
+  // Serializar checkboxes como lista
+  data.valores_seleccionados = valoresSeleccionados.join(', ');
+  data._practica = PRACTICA_NUM;
+  data._practica_titulo = PRACTICA_TITULO;
+  data._timestamp = new Date().toISOString();
+
+  // Backup local
+  try {
+    const key = `tenampa_p${PRACTICA_NUM}_${data.email || 'anon'}_${Date.now()}`;
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch(_) {}
+
+  if (BACKEND_URL && BACKEND_URL.indexOf('REEMPLAZA') === -1) {
+    try {
+      await fetch(BACKEND_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      form.style.display = 'none';
+      successBox.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      errorBox.classList.add('active');
+      errorBox.querySelector('p').textContent = 'No se pudo conectar con el servidor. Tu reflexión quedó guardada localmente. Inténtalo más tarde o avisa a la docente.';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar reflexión';
+    }
+  } else {
+    form.style.display = 'none';
+    successBox.classList.add('active');
+    successBox.querySelector('.success-text').textContent = 'Reflexión guardada localmente (modo demo). Configura BACKEND_URL para enviar al sheet.';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+</script>
+</body>
+</html>

@@ -491,6 +491,80 @@ p.body-text {
   line-height: 1.45;
 }
 
+/* Tarjeta de reflexión final (Parte VII) — angosta, centrada */
+.reflexion-card-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+.reflexion-card {
+  border: 2px solid var(--guinda);
+  background: var(--paper-light);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  text-align: center;
+  font-family: inherit;
+  width: 100%;
+  max-width: 280px;
+  display: block;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+.reflexion-card::before {
+  content: '';
+  position: absolute;
+  top: 5px; left: 5px; right: 5px; bottom: 5px;
+  border: 1px solid var(--guinda);
+  pointer-events: none;
+}
+.reflexion-card:hover {
+  background: var(--paper);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--guinda);
+}
+.reflexion-card-inner {
+  padding: 24px 20px 22px;
+}
+.reflexion-card-emblem {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 14px;
+  display: block;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.22);
+}
+.reflexion-card-label {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  border-bottom: 1px solid var(--guinda);
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+.reflexion-card-title {
+  font-family: 'Abril Fatface', serif;
+  font-size: 17px;
+  line-height: 1.1;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.reflexion-card-valores {
+  font-family: 'PT Serif', serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faded);
+  line-height: 1.7;
+}
+
 /* ============================================================
    NARRADORES
 ============================================================ */
@@ -1363,6 +1437,21 @@ p.body-text {
           </div>
         </button>
       </div>
+
+      <!-- Reflexión final — Parte VII -->
+      <div class="reflexion-card-wrap">
+        <a class="reflexion-card" href="form_practica_7_reflexion.html" aria-label="Ir a la reflexión final">
+          <div class="reflexion-card-inner">
+            <img class="reflexion-card-emblem" src="logo-tenampa-100.png" alt="Tenampa 100 años">
+            <div class="reflexion-card-label">Reflexión final</div>
+            <h3 class="reflexion-card-title">Valores del caso Tenampa</h3>
+            <div class="reflexion-card-valores">
+              Crecimiento<br>Posicionamiento Marca Tenampa<br>Propuesta de Valor
+            </div>
+          </div>
+        </a>
+      </div>
+
     </section>
 
     <!-- Colofón -->
