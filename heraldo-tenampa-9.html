@@ -747,16 +747,18 @@ p.body-text {
   color: var(--sepia-ink);
 }
 
+.practice-qr-wrapper {
+  width: 180px;
+  overflow: hidden;
+  margin: 0.6rem auto 0;
+}
 .practice-qr-image {
-  width: 100%;
-  max-width: 180px;
+  width: calc(100% + 18px);
   height: auto;
   display: block;
-  margin: 0.6rem auto 0;
   border: 1px solid var(--ink);
   background: #fff;
   padding: 5px;
-  clip-path: inset(0 11% 0 0);
 }
 
 /* Botón fijo de inicio — visible en todas las páginas de práctica */
@@ -1565,7 +1567,7 @@ function renderPractice(p, idx) {
         `).join('')}
         <div class="practice-qr-block">
           <p class="practice-qr-label">Escanea para ir a la práctica</p>
-          <img class="practice-qr-image" src="qr-practicas.jpeg" alt="Código QR para ir a la práctica correspondiente">
+          <div class="practice-qr-wrapper"><img class="practice-qr-image" src="qr-practicas.jpeg" alt="Código QR para ir a la práctica correspondiente"></div>
         </div>
       </section>
 
