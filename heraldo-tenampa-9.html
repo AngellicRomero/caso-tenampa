@@ -1421,7 +1421,12 @@ const practices = [
       "Uno: transmitir de manera sólida qué es el Tenampa — la historia, el ambiente, la excelencia de servicio. Dos: permitirte decidir al final del tercer día si esa persona se queda. Y la inducción no puede ocupar el turno completo — el salón sigue operando."
     ],
     task: "Diseña el programa de inducción hora por hora de tres días (entre 9 y 15 horas totales, con horarios realistas). Una rúbrica go/no-go con 5-7 criterios observables — al menos uno sobre historia y conocimiento cultural del Tenampa. Dos protocolos textuales de cierre del día 3: uno para quien se queda, otro para quien no. Identifica un límite ético o legal que queda fuera del diseño.",
-    deliverable: "Programa + rúbrica + protocolos en un solo PDF unificado. Producido en Canva Pro con arranque en Canva AI. Tiempo estimado: 45-60 minutos."
+    deliverable: "Programa + rúbrica + protocolos en un solo PDF unificado. Producido en Canva Pro con arranque en Canva AI. Tiempo estimado: 45-60 minutos.",
+    endVideos: [
+      { embedUrl: "https://www.canva.com/design/DAHJF5HpFQw/N-kfrk49TKIrlH6QxTHxGQ/watch?embed", openUrl: "https://www.canva.com/design/DAHJF5HpFQw/N-kfrk49TKIrlH6QxTHxGQ/watch?utm_content=DAHJF5HpFQw&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 1" },
+      { embedUrl: "https://www.canva.com/design/DAHJF_DOBFA/qAkyYX2JRTNu_vcP4_lLpA/watch?embed", openUrl: "https://www.canva.com/design/DAHJF_DOBFA/qAkyYX2JRTNu_vcP4_lLpA/watch?utm_content=DAHJF_DOBFA&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 2" },
+      { embedUrl: "https://www.canva.com/design/DAHJFyaP1-U/B3fSCI48LDWYfHp8YqVCEQ/watch?embed", openUrl: "https://www.canva.com/design/DAHJFyaP1-U/B3fSCI48LDWYfHp8YqVCEQ/watch?utm_content=DAHJFyaP1-U&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 3" }
+    ]
   },
   {
     num: "VI",
@@ -1434,7 +1439,12 @@ const practices = [
       "Sumaste al consejo dos asesoras externas: una con perfil financiero, otra con experiencia en hostelería. Cuatro personas van a escuchar tu propuesta para los próximos tres años. Esto no es un plan de 40 páginas — es una página que el consejo lee en cinco minutos y decide en treinta."
     ],
     task: "¿Cuánto vale una marca presente en el imaginario colectivo por más de 80 años? Plasma hacia dónde debería caminar el Tenampa con ideas estratégicas: diagnóstico en tres bullets con dato duro, tesis estratégica en una sola frase, tres iniciativas priorizadas con horizonte de impacto, qué cosas concretas dejas de hacer (al menos dos cortes), inversión agregada con composición, y una pregunta genuina al consejo.",
-    deliverable: "Executive one-pager. Máximo 600 palabras. PDF en Canvas. Tiempo estimado: 60-90 minutos. Esta práctica se simula en la sesión presencial: cuatro compañeros hacen de consejo, una persona defiende su propuesta."
+    deliverable: "Executive one-pager. Máximo 600 palabras. PDF en Canvas. Tiempo estimado: 60-90 minutos. Esta práctica se simula en la sesión presencial: cuatro compañeros hacen de consejo, una persona defiende su propuesta.",
+    startVideos: [
+      { embedUrl: "https://www.canva.com/design/DAHJFzkUao8/CSZFghH0AYlltzjzpYokxA/watch?embed", openUrl: "https://www.canva.com/design/DAHJFzkUao8/CSZFghH0AYlltzjzpYokxA/watch?utm_content=DAHJFzkUao8&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 4" },
+      { embedUrl: "https://www.canva.com/design/DAHJF2XWc_E/PaKHx1Gm_Fz8DJ8_yGXE0w/watch?embed", openUrl: "https://www.canva.com/design/DAHJF2XWc_E/PaKHx1Gm_Fz8DJ8_yGXE0w/watch?utm_content=DAHJF2XWc_E&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 5" },
+      { embedUrl: "https://www.canva.com/design/DAHI7tCNy0s/QzXofyO-Nqmr_eQx76eskw/watch?embed", openUrl: "https://www.canva.com/design/DAHI7tCNy0s/QzXofyO-Nqmr_eQx76eskw/watch?utm_content=DAHI7tCNy0s&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 6" }
+    ]
   }
 ];
 
@@ -1502,7 +1512,15 @@ function renderPractice(p, idx) {
         <p class="embed-label mb-1">— Material de la sesión —</p>
         <h2 class="embed-title">Presentación narrada</h2>
         <p class="embed-sub">Avanza la presentación a tu ritmo</p>
+        ${(p.startVideos || []).map((v, i) => `
+          <p class="embed-label mb-1" style="margin-top:1.2em;">— ${v.label} —</p>
+          ${canvaIframeWrapper(v.embedUrl, v.openUrl, `Abrir ${v.label} ↗`)}
+        `).join('')}
         ${presentationBlock}
+        ${(p.endVideos || []).map((v, i) => `
+          <p class="embed-label mb-1" style="margin-top:1.2em;">— ${v.label} —</p>
+          ${canvaIframeWrapper(v.embedUrl, v.openUrl, `Abrir ${v.label} ↗`)}
+        `).join('')}
         <div class="practice-qr-block">
           <p class="practice-qr-label">Escanea para ir a la práctica</p>
           <img class="practice-qr-image" src="qr-practicas.jpeg" alt="Código QR para ir a la práctica correspondiente">
