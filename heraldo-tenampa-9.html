@@ -761,6 +761,21 @@ p.body-text {
   padding: 5px;
 }
 
+/* Sello Tenampa 100 años — emblem/hebilla */
+.tenampa-100-emblem {
+  display: block;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin: 1.4rem auto;
+  object-fit: cover;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.32);
+}
+.tenampa-100-emblem-wrap {
+  text-align: center;
+  margin: 1.6rem 0;
+}
+
 /* Botón fijo de inicio — visible en todas las páginas de práctica */
 .btn-home-fixed {
   display: none;
@@ -1141,9 +1156,12 @@ p.body-text {
         <p class="kicker kicker-center mb-3">— Edición especial · MMXXVI —</p>
         <h2 class="grand-headline">Salón <em>Tenampa</em></h2>
         <p class="subhead-italic mb-3">La rehabilitación de un ícono mexicano</p>
+        <div class="tenampa-100-emblem-wrap">
+          <img class="tenampa-100-emblem" src="logo-tenampa-100.png" alt="Tenampa · 100 años de tradición">
+        </div>
       </div>
 
-      
+
       <div class="rule-thick-thin" style="max-width: 720px; margin: 2rem auto;"></div>
       <p class="lead">Material asíncrono del curso. Seis partes narradas por dos voces de Plaza Garibaldi, seis prácticas ejecutivas, una sesión presencial de cierre.</p>
     </section>
@@ -1534,10 +1552,16 @@ function renderPractice(p, idx) {
     `
     : '';
 
+  const emblem100 = idx >= 5
+    ? `<div class="tenampa-100-emblem-wrap"><img class="tenampa-100-emblem" src="logo-tenampa-100.png" alt="Tenampa · 100 años de tradición"></div>`
+    : '';
+
   return `
     <article class="container-narrow" style="padding-top: 2.5rem; padding-bottom: 2rem;">
 
       <button class="practice-back" onclick="goToPage(0)">← Volver a la portada</button>
+
+      ${emblem100}
 
       <p class="practice-eyebrow">Parte ${p.num} · Práctica ${p.num}</p>
       <h1 class="practice-title">${p.title}</h1>
