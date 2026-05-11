@@ -229,6 +229,7 @@ main { padding: 2.5rem 0 5rem; }
 }
 .btn-home-fixed:hover { background: #8B2828; }
 </style>
+<script src="config.js"></script>
 </head>
 <body>
 
@@ -390,7 +391,7 @@ main { padding: 2.5rem 0 5rem; }
 
 <script>
 // === CONFIGURACIÓN ===
-const BACKEND_URL = 'REEMPLAZA_AQUI_CON_URL_DE_APPS_SCRIPT';
+const BACKEND_URL = window.TENAMPA_BACKEND_URL || '';
 const PRACTICA_NUM = 7;
 const PRACTICA_TITULO = 'Reflexión final · valores del caso Tenampa';
 // =====================
@@ -459,12 +460,12 @@ form.addEventListener('submit', async (e) => {
     localStorage.setItem(key, JSON.stringify(data));
   } catch(_) {}
 
-  if (BACKEND_URL && BACKEND_URL.indexOf('REEMPLAZA') === -1) {
+  if (BACKEND_URL) {
     try {
       await fetch(BACKEND_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(data)
       });
       form.style.display = 'none';

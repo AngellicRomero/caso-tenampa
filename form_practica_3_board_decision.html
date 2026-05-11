@@ -754,6 +754,7 @@ main {
 }
 .btn-home-fixed:hover { background: #6B1818; }
 </style>
+<script src="config.js"></script>
 </head>
 <body>
 <a class="btn-home-fixed" href="heraldo-tenampa-9.html" title="Volver al inicio">← Inicio</a>
@@ -1112,7 +1113,7 @@ main {
 
 <script>
 // === CONFIGURACIÓN · pegar aquí la URL del Apps Script Web App ===
-const BACKEND_URL = 'REEMPLAZA_AQUI_CON_URL_DE_APPS_SCRIPT';
+const BACKEND_URL = window.TENAMPA_BACKEND_URL || '';
 const PRACTICA_NUM = 3;
 const PRACTICA_TITULO = 'Board decision · liderazgo y gestión';
 // =================================================================
@@ -1158,12 +1159,12 @@ form.addEventListener('submit', async (e) => {
   } catch(_) {}
 
   // Enviar al backend
-  if (BACKEND_URL && BACKEND_URL.indexOf('REEMPLAZA') === -1) {
+  if (BACKEND_URL) {
     try {
       const res = await fetch(BACKEND_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(data)
       });
       // Modo no-cors: no podemos leer la respuesta pero llegó al servidor
