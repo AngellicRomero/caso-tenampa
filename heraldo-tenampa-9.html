@@ -829,6 +829,18 @@ p.body-text {
   margin: 0.6rem auto 0;
 }
 
+.practice-qr-link {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: 'PT Serif', serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--guinda);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Sello Tenampa 100 años — emblem/hebilla */
 .tenampa-100-emblem {
   display: block;
@@ -1510,7 +1522,8 @@ const practices = [
       "Esta noche tienes una sola tarea: decidir el futuro de la dirección del Salón Tenampa. Si vendes, tus sueños de perseguir una carrera enfocada en lo que esperabas, se pierde. Si no vendes, el reto de rescatar una cantina de más de 80 años será todo tuyo."
     ],
     task: "Toma una decisión: vender y perseguir tus sueños o no vender y rescatar la cantina. Justifica tu decisión en máximo 400 palabras.",
-    deliverable: "Memo + agenda en un solo PDF. Producido en Canva Pro con arranque en Canva AI (plantilla de Memo o Business Letter). Entrega en Canvas. Tiempo estimado: 35-45 minutos."
+    deliverable: "Memo + agenda en un solo PDF. Producido en Canva Pro con arranque en Canva AI (plantilla de Memo o Business Letter). Entrega en Canvas. Tiempo estimado: 35-45 minutos.",
+    formUrl: "form_practica_1_memo.html"
   },
   {
     num: "II",
@@ -1523,7 +1536,8 @@ const practices = [
       "Esta situación no puede seguir así. ¿Qué debemos hacer con el Señor Jorge?"
     ],
     task: "Redacta un decision brief por email a la socia mayoritaria. Máximo 400 palabras. Asunto, resumen ejecutivo (3 líneas), hechos verificados, incertidumbres explícitas, tres opciones reales con costo y riesgo, recomendación con condiciones de ejecución, y una sola pregunta accionable que tu madre debe responder en 72 horas.",
-    deliverable: "One-page brief en PDF que pueda leerse en pantalla de teléfono sin scroll lateral. Producido en Canva Pro con arranque en Canva AI. Tiempo estimado: 40-50 minutos."
+    deliverable: "One-page brief en PDF que pueda leerse en pantalla de teléfono sin scroll lateral. Producido en Canva Pro con arranque en Canva AI. Tiempo estimado: 40-50 minutos.",
+    formUrl: "form_practica_2_decision_brief.html"
   },
   {
     num: "III",
@@ -1536,7 +1550,8 @@ const practices = [
       "¿Hay diferencia entre Fernando o Fernanda en cuanto a las decisiones que tomó y el tipo de gestión y liderazgo que debería asumir?"
     ],
     task: "Reflexiona sobre si el género del protagonista —Fernando o Fernanda— implicaría diferencias en las decisiones tomadas, el estilo de gestión y el tipo de liderazgo requerido para rescatar el Salón Tenampa. Argumenta con evidencia del caso.",
-    deliverable: "Presentación ejecutiva de 4-5 slides o one-pager con tabla comparativa. Máximo 600 palabras. PDF a Canvas. Tiempo estimado: 50-70 minutos."
+    deliverable: "Presentación ejecutiva de 4-5 slides o one-pager con tabla comparativa. Máximo 600 palabras. PDF a Canvas. Tiempo estimado: 50-70 minutos.",
+    formUrl: "form_practica_3_board_decision.html"
   },
   {
     num: "IV",
@@ -1549,7 +1564,8 @@ const practices = [
       "¿Por dónde empezamos? ¿Qué acciones debemos tomar?"
     ],
     task: "Diseña el roadmap operativo de los próximos 90 días con exactamente cinco iniciativas priorizadas. Tabla con responsable nombrado, recursos en semanas-persona y dinero, hito al día 30, métrica a 90. Narrativa de priorización (200 palabras) y bloque «lo que NO vamos a hacer este trimestre» (150 palabras, al menos dos cortes específicos).",
-    deliverable: "Roadmap visual horizontal en tres bloques (día 1-30, 31-60, 61-90) + tabla de iniciativas. PDF en Canvas. Tiempo estimado: 50-70 minutos."
+    deliverable: "Roadmap visual horizontal en tres bloques (día 1-30, 31-60, 61-90) + tabla de iniciativas. PDF en Canvas. Tiempo estimado: 50-70 minutos.",
+    formUrl: "form_practica_4_roadmap.html"
   },
   {
     num: "V",
@@ -1563,6 +1579,7 @@ const practices = [
     ],
     task: "Diseña el programa de inducción hora por hora de tres días (entre 9 y 15 horas totales, con horarios realistas). Una rúbrica go/no-go con 5-7 criterios observables — al menos uno sobre historia y conocimiento cultural del Tenampa. Dos protocolos textuales de cierre del día 3: uno para quien se queda, otro para quien no. Identifica un límite ético o legal que queda fuera del diseño.",
     deliverable: "Programa + rúbrica + protocolos en un solo PDF unificado. Producido en Canva Pro con arranque en Canva AI. Tiempo estimado: 45-60 minutos.",
+    formUrl: "form_practica_5_induccion.html",
     endVideos: [
       { embedUrl: "https://www.canva.com/design/DAHJF5HpFQw/N-kfrk49TKIrlH6QxTHxGQ/watch?embed", openUrl: "https://www.canva.com/design/DAHJF5HpFQw/N-kfrk49TKIrlH6QxTHxGQ/watch?utm_content=DAHJF5HpFQw&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 1" },
       { embedUrl: "https://www.canva.com/design/DAHJF_DOBFA/qAkyYX2JRTNu_vcP4_lLpA/watch?embed", openUrl: "https://www.canva.com/design/DAHJF_DOBFA/qAkyYX2JRTNu_vcP4_lLpA/watch?utm_content=DAHJF_DOBFA&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video 2" },
@@ -1581,6 +1598,7 @@ const practices = [
     ],
     task: "¿Cuánto vale una marca presente en el imaginario colectivo por más de 80 años? Plasma hacia dónde debería caminar el Tenampa con ideas estratégicas: diagnóstico en tres bullets con dato duro, tesis estratégica en una sola frase, tres iniciativas priorizadas con horizonte de impacto, qué cosas concretas dejas de hacer (al menos dos cortes), inversión agregada con composición, y una pregunta genuina al consejo.",
     deliverable: "Executive one-pager. Máximo 600 palabras. PDF en Canvas. Tiempo estimado: 60-90 minutos. Esta práctica se simula en la sesión presencial: cuatro compañeros hacen de consejo, una persona defiende su propuesta.",
+    formUrl: "form_practica_6_propuesta_estrategica.html",
     endVideos: [
       { embedUrl: "https://www.canva.com/design/DAHJF8YdNVQ/gYb3MV6KP69Pa8FvwIMjpA/watch?embed", openUrl: "https://www.canva.com/design/DAHJF8YdNVQ/gYb3MV6KP69Pa8FvwIMjpA/watch?utm_content=DAHJF8YdNVQ&utm_campaign=designshare&utm_medium=embeds&utm_source=link", label: "Video Promocional" }
     ],
@@ -1675,6 +1693,7 @@ function renderPractice(p, idx) {
         <div class="practice-qr-block">
           <p class="practice-qr-label">Escanea para ir a la práctica</p>
           <img class="practice-qr-image" src="QR%20pr%C3%A1cticas.jpeg" alt="Código QR para ir a la práctica correspondiente">
+          ${p.formUrl ? `<a class="practice-qr-link" href="${p.formUrl}" target="_blank" rel="noopener">o haz clic aquí para acceder →</a>` : ''}
         </div>
       </section>
 
