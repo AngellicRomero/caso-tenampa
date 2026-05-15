@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<script src="config.js"></script>
 <style>
 :root {
   --paper: #E8DFCE;
@@ -828,9 +829,7 @@ main {
 </footer>
 
 <script>
-// === CONFIGURACIÓN ===
-const BACKEND_URL = 'REEMPLAZA_AQUI_CON_URL_DE_APPS_SCRIPT';
-// ======================
+const BACKEND_URL = window.TENAMPA_BACKEND_URL || '';
 
 let respuestasGlobal = [];
 
@@ -849,9 +848,9 @@ async function cargarRespuestas() {
   content.className = 'loading';
   content.textContent = 'Cargando respuestas…';
 
-  if (!BACKEND_URL || BACKEND_URL.indexOf('REEMPLAZA') !== -1) {
-    content.innerHTML = '<div class="empty-state"><p>Configura BACKEND_URL con la URL de tu Apps Script Web App para ver respuestas reales. Mientras tanto, aquí muestro datos de ejemplo.</p></div>';
-    respuestasGlobal = generarEjemplos();
+  if (!BACKEND_URL) {
+    content.innerHTML = '<div class="empty-state"><p>Backend no configurado. Asegúrate de que config.js esté disponible con la URL del Apps Script.</p></div>';
+    respuestasGlobal = [];
     renderizar();
     return;
   }
@@ -859,20 +858,14 @@ async function cargarRespuestas() {
   try {
     const res = await fetch(BACKEND_URL + '?action=list');
     const data = await res.json();
+    if (!data.success) throw new Error(data.message || 'Error del servidor');
     respuestasGlobal = data.respuestas || [];
     renderizar();
   } catch (err) {
-    content.innerHTML = '<div class="empty-state"><p>No se pudieron cargar las respuestas. Verifica la URL del backend o tu conexión.</p></div>';
+    content.innerHTML = `<div class="empty-state"><p>No se pudieron cargar las respuestas: ${err.message}</p></div>`;
   }
 }
 
-function generarEjemplos() {
-  // Datos de demostración para ver el dashboard sin backend configurado
-  return [
-    { _practica: 1, _practica_titulo: TITULOS_PRACTICAS[1], _timestamp: '2026-04-15T10:30:00.000Z', nombre: 'Ejemplo Estudiante', email: 'ejemplo@egade.mx', matricula: 'A01234567', asunto: 'Continuamos: tres prioridades para esta semana' },
-    { _practica: 2, _practica_titulo: TITULOS_PRACTICAS[2], _timestamp: '2026-04-22T18:15:00.000Z', nombre: 'Ejemplo Estudiante', email: 'ejemplo@egade.mx', matricula: 'A01234567', asunto: 'Decisión esta semana sobre el equipo histórico' }
-  ];
-}
 
 function renderizar() {
   const search = document.getElementById('filter-search').value.toLowerCase();

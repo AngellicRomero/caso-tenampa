@@ -46,10 +46,11 @@ El script creará automáticamente una pestaña por cada práctica cuando llegue
 
 ```javascript
 // ============================================================
-//  Caso Tenampa — Receptor de respuestas de formularios
+//  Caso Tenampa — Receptor y lector de respuestas
 // ============================================================
 const SPREADSHEET_ID = '1s_1ks709v0vuIQGJobXhFtKbpczlmJ74KaYneXgSxX8';
 
+// ── Recibe respuestas de los formularios ───────────────────
 function doPost(e) {
   try {
     const raw = e.postData ? e.postData.contents : '';
@@ -58,13 +59,11 @@ function doPost(e) {
     const data = JSON.parse(raw);
     const ss   = SpreadsheetApp.openById(SPREADSHEET_ID);
 
-    // Crea una pestaña por práctica si no existe
     const sheetName = 'Práctica ' + (data._practica || 'Sin número');
     let sheet = ss.getSheetByName(sheetName);
 
     if (!sheet) {
       sheet = ss.insertSheet(sheetName);
-      // Primera fila = encabezados
       const headers = Object.keys(data);
       sheet.appendRow(headers);
       sheet.getRange(1, 1, 1, headers.length)
@@ -82,6 +81,36 @@ function doPost(e) {
   }
 }
 
+// ── Devuelve todas las respuestas al dashboard ─────────────
+function doGet(e) {
+  try {
+    const action = e && e.parameter ? e.parameter.action : '';
+    if (action !== 'list') return respond(false, 'Acción no reconocida');
+
+    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    const respuestas = [];
+
+    ss.getSheets().forEach(sheet => {
+      if (!sheet.getName().startsWith('Práctica ')) return;
+      const data = sheet.getDataRange().getValues();
+      if (data.length < 2) return;
+      const headers = data[0];
+      for (let i = 1; i < data.length; i++) {
+        const obj = {};
+        headers.forEach((h, j) => { obj[h] = data[i][j]; });
+        respuestas.push(obj);
+      }
+    });
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ success: true, respuestas: respuestas }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    return respond(false, err.toString());
+  }
+}
+
 function respond(success, message) {
   return ContentService
     .createTextOutput(JSON.stringify({ success: success, message: message }))
@@ -89,8 +118,6 @@ function respond(success, message) {
 }
 
 // ── Prueba manual ──────────────────────────────────────────
-// Selecciona esta función y haz clic en "Ejecutar" para verificar
-// que el script puede escribir en la hoja antes de desplegarlo.
 function testPost() {
   const mockData = {
     nombre:           'Alumno de Prueba',
